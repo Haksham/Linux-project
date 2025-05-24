@@ -1,0 +1,15 @@
+make
+
+sudo insmod rtc_sync.ko
+
+sudo dmesg | grep rtc_shm
+
+ls -l /dev/rtc_shm
+
+cat /dev/rtc_shm
+
+gcc rtc_slave.c -o rtc_slave
+
+sudo ./rtc_slave
+
+sudo rmmod rtc_sync

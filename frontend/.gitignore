@@ -40,8 +40,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/rtc-sim/.env
-/rtc-sim/.env.local
-/rtc-sim/.env.development
 /rtc-sim/node_modules
-/public

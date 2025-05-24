@@ -1,12 +1,14 @@
 # 🕒 Real-Time Clock Partition Simulator
 
-A dynamic web-based simulation of real-time clock (RTC) management and synchronization across OS partitions, built for Linux class (10 marks component).
+A dynamic, interactive web-based simulation of real-time clock (RTC) management and synchronization across OS partitions.  
+Built for Linux session.
 
 ---
 
 ## 🚀 Overview
 
-This project demonstrates **master-slave RTC synchronization** in a multi-partition system.  
+This project demonstrates **master-slave RTC synchronization** in a multi-partition system:
+
 - **Linux** acts as the **Master Partition**, reading time from the hardware clock.
 - **Windows OS** and **Ubuntu** are **Slave Partitions** whose clocks can drift and become out of sync.
 - You can simulate clock drift, observe out-of-sync states, and manually synchronize all partitions—just like using `timedatectl set-local-rtc 1` in Linux.
@@ -20,6 +22,19 @@ This project demonstrates **master-slave RTC synchronization** in a multi-partit
 - **Manual & Bulk Sync:** Instantly synchronize all slave partitions with a single click.
 - **Visual Feedback:** Out-of-sync states are clearly highlighted.
 - **Modern UI:** Responsive, attractive interface using React and Next.js.
+- **Command Simulation:** Simulate Linux RTC commands and observe their effects.
+
+---
+
+## 🖼️ Screenshots
+
+<div align="center">
+  <img src="pic/rtc_dashboard.png" alt="RTC Dashboard" width="600"/>
+  <br>
+  <img src="pic/rtc_out_of_sync.png" alt="Out of Sync Example" width="600"/>
+  <br>
+  <img src="pic/rtc_sync_all.png" alt="Sync All Example" width="600"/>
+</div>
 
 ---
 
@@ -63,6 +78,8 @@ linux-proj/
 │       └── PartitionClock.js
 │   └── app/
 │       └── page.js
+│   └── pic/         # Screenshots and images for documentation
+├── Commands.txt     # Useful Linux commands for RTC module
 └── README.md
 ```
 
@@ -73,12 +90,31 @@ linux-proj/
 - **Master Clock:** The backend (`rtc-sim/index.js`) broadcasts the current time to all partitions.
 - **Partitions:** Each partition (component) simulates its own clock, which may drift.
 - **Synchronization:** Slave partitions periodically sync to the master, or can be manually synced via UI buttons.
+- **Command Simulation:** Use the UI to simulate commands like `timedatectl set-local-rtc 1` for instant synchronization.
 
 ---
 
-## 📸 Screenshots
+## 🖥️ Useful Commands
 
-<!-- Add screenshots/gifs here to showcase the UI and features -->
+The following commands (from [`Commands.txt`](Commands.txt)) are useful for working with the kernel RTC module:
+
+```bash
+make
+
+sudo insmod rtc_sync.ko
+
+sudo dmesg | grep rtc_shm
+
+ls -l /dev/rtc_shm
+
+cat /dev/rtc_shm
+
+gcc rtc_slave.c -o rtc_slave
+
+sudo ./rtc_slave
+
+sudo rmmod rtc_sync
+```
 
 ---
 
@@ -91,7 +127,7 @@ linux-proj/
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 Authors
 
 - **Harsh V M**
 - **Karthik Hegde**

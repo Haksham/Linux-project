@@ -29,11 +29,15 @@ This project demonstrates **master-slave RTC synchronization** in a multi-partit
 ## 🖼️ Screenshots
 
 <div align="center">
-  <img src="pic/rtc_dashboard.png" alt="RTC Dashboard" width="600"/>
-  <br>
-  <img src="pic/rtc_out_of_sync.png" alt="Out of Sync Example" width="600"/>
-  <br>
-  <img src="pic/rtc_sync_all.png" alt="Sync All Example" width="600"/>
+  <img src="pics/p1.png" alt="RTC Dashboard" width="600"/>
+  <br><br>
+  <img src="pics/p2.png" alt="Out of Sync Example" width="600"/>
+  <br><br>
+  <img src="pics/p3.png" alt="Sync All Example" width="600"/>
+  <br><br>
+  <img src="pics/p4.png" alt="Sync All Example" width="600"/>
+  <br><br>
+  <img src="pics/p5.png" alt="Sync All Example" width="600"/>
 </div>
 
 ---
@@ -69,19 +73,46 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🏗️ Project Structure
 
-```
-linux-proj/
-├── rtc-sim/         # Node.js backend (master clock)
-│   └── index.js
-├── frontend/        # Next.js frontend (UI & simulation)
-│   └── components/
-│       └── PartitionClock.js
-│   └── app/
-│       └── page.js
-│   └── pic/         # Screenshots and images for documentation
-├── Commands.txt     # Useful Linux commands for RTC module
-└── README.md
-```
+
+<details>
+<summary><b>📁 linux-proj/ (Root)</b></summary>
+
+<summary>├── <b>frontend/</b> <i>(Next.js frontend)</i></summary>
+<summary>│   ├── <b>app/</b></summary>
+
+│   │   ├── layout.js  
+│   │   ├── page.js  
+│   │   └── globals.css  
+│   ├── <b>components/</b><br>
+│   │   └── PartitionClock.js  
+│   ├── <b>pic/</b> <i>(Screenshots & images)</i><br>
+│   │   ├── p1.png  
+│   │   ├── p2.png  
+│   │   ├── p3.png  
+│   │   ├── p4.png  
+│   │   ├── p5.png  
+│   ├── .gitignore  
+│   ├── jsconfig.json  
+│   ├── next.config.mjs  
+│   ├── package.json  
+│   ├── postcss.config.mjs  
+│   ├── README.md  
+│   ├── requirements.txt  
+│   └── tailwind.config.mjs  
+├── <b>rtc-sim/</b> <i>(Node.js backend)</i><br>
+│   ├── .gitignore  
+│   ├── index.js  
+│   ├── package.json  
+│   └── requirements.txt  
+├── .gitignore  
+├── Commands.txt  
+├── LICENSE  
+├── Makefile  
+├── README.md  
+├── rtc_slave.c  
+├── rtc_sync.c  
+
+</details>
 
 ---
 
